@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+<table class="table">
+    <thead class="table-dark">
+      <tr>
+        <th>Карточка "{{customer.name}}"</th> 
+      </tr>
+    </thead>
+    <tbody>
+
+        <tr><td>Телефон - {{ customer.tel_number }}</td></tr> 
+        <tr><td>Адрес - {{ customer.address }}</td></tr>
+        <tr><td>Приоритет - {{ customer.get_priority_display }}</td></tr>
+        <tr><td>Долг - {{ customer.money_debt }}</td></tr>
+        <tr><td>Тип - {{ customer.get_type_display }}</td></tr>
+     
+    </tbody>
+  </table>
+  <input type="button" class="btn btn-primary mb-3" onclick="location.href='{% url "update_client" pk=customer.pk %}'" value="Редактировать" />
+  <input type="button" class="btn btn-primary mb-3" onclick="location.href='{% url "delete_client" pk=customer.pk %}'" value="Удалить" />
+  <input type="button" class="btn btn-primary mb-3" onclick="location.href='{% url "list_clients" %}'" value="Назад" />
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div>
+    <form action="" method="POST">
+        {% csrf_token %}
+        <h2>Вы уверены что хотите удалить "{{customer.name}}"?</h2>
+        <input type="submit" class="btn btn-primary mb-3" value="Да" />
+        <input type="button" class="btn btn-primary mb-3" onclick="location.href='{% url "detail_client" pk=customer.pk %}'" value="Назад" />
+    </form>
+</div>
+{% endblock %}

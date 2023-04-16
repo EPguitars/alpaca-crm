@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="mb-3">
+<h1>Введите данные клиента</h1>
+<form action="" method="POST">
+    {% csrf_token %}
+    {{ form.as_div }}
+    <br>
+    <input type="submit" class="btn btn-primary mb-3", value="Добавить"/>   
+    <input type="button" class="btn btn-primary mb-3" onclick="location.href='{% url "list_clients" %}'" value="Отменить" />
+</form>
+</div>
+{% endblock %}
